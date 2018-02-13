@@ -1,6 +1,6 @@
 {
   "name": "file-name-fixer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Finds invalid file names and renames them.",
   "main": "index.js",
   "bin": {
