@@ -1,7 +1,9 @@
-// var texturepack = require('./tps/texturepack')
+#! /usr/bin/env node
+
 var fs = require('fs');
 var path = require('path');
 var decamelize = require('decamelize');
+const colors = require('colors'); // eslint-disable-line
 
 let count = 0;
 
@@ -28,7 +30,7 @@ const walk = function(dir)
                 const fullRenamePath = path.join(dir, newFilename);
 
                 fs.renameSync(fullPath, fullRenamePath)
-                console.log('Renamed: ' + fullPath + ' to ' + fullRenamePath)
+                console.log( ('Renamed: ' + fullPath + ' to ' + fullRenamePath).red );
             }
         }
     });
@@ -52,11 +54,11 @@ const fixname = function(filename)
     }
 }
 
-const inputDir = process.argv[2]//args.path;
+const inputDir = process.argv[2];
 
 if(!inputDir)
 {
-    console.log('please provide a path')
+    console.log('please provide a path'.red)
 }
 else
 {
@@ -64,10 +66,10 @@ else
 
     if(count > 0)
     {
-        console.log(count + ' files names fixed.')
+        console.log(count + ' files names fixed.'.green)
     }
     else
     {
-        console.log('all file names are valid, well done goodboy!')
+        console.log('all file names are valid, well done goodboy!'.green)
     }
 }
